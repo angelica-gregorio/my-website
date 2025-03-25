@@ -1,68 +1,41 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Professional Portfolio</h1>
+    </header>
+    
+    <section class="intro">
+        <p>Welcome to my portfolio! I am a dedicated engineer and tech enthusiast with a passion for innovation and impactful solutions.</p>
+    </section>
+    
+    <section class="content">
+        <div class="card">
+            <h2>Projects</h2>
+            <p>Explore some of my key projects that showcase my expertise in technology and engineering.</p>
+            <button id="projectsBtn">View Projects</button>
+        </div>
 
-export default function Portfolio() {
-  return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.h1
-          className="text-4xl font-bold text-center mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          My Professional Portfolio
-        </motion.h1>
-
-        <Card className="mb-6 p-4">
-          <CardContent>
-            <motion.p
-              className="text-lg text-gray-700"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              Welcome to my portfolio! I am a dedicated engineer and tech enthusiast with a passion for innovation and impactful solutions.
-            </motion.p>
-          </CardContent>
-        </Card>
-
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <Card>
-            <CardContent>
-              <h2 className="text-xl font-semibold mb-2">Projects</h2>
-              <p className="text-gray-600">Explore some of my key projects that showcase my expertise in technology and engineering.</p>
-              <Button className="mt-4">View Projects</Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent>
-              <h2 className="text-xl font-semibold mb-2">Skills</h2>
-              <p className="text-gray-600">I specialize in LoRaWAN, IoT solutions, and web development, with a strong focus on social impact.</p>
-              <Button className="mt-4">View Skills</Button>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          className="flex justify-center space-x-4 mt-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <a href="#" className="text-gray-600 hover:text-black"><FaGithub size={30} /></a>
-          <a href="#" className="text-gray-600 hover:text-blue-700"><FaLinkedin size={30} /></a>
-          <a href="mailto:your.email@example.com" className="text-gray-600 hover:text-red-600"><FaEnvelope size={30} /></a>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
+        <div class="card">
+            <h2>Skills</h2>
+            <p>I specialize in LoRaWAN, IoT solutions, and web development, with a strong focus on social impact.</p>
+            <button id="skillsBtn">View Skills</button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="mailto:your.email@example.com">Email</a>
+        </div>
+    </footer>
+</body>
+</html>
