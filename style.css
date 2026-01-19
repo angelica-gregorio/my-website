@@ -58,7 +58,9 @@ body.menu-body {
     position: relative;
     transition: color 0.3s;
 }
-.nav-links a:hover { color: #000; }
+.nav-links a:hover {
+    color: #000; 
+}
 .nav-links a::after {
     content: ''; position: absolute; width: 0; height: 3px; bottom: -5px; left: 0;
     background-color: var(--accent-yellow); transition: width 0.3s;
