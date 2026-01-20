@@ -2,100 +2,194 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* TIMELINE SPECIFIC CSS (IDE Theme) */
+        .timeline-container {
+            position: relative;
+            padding-left: 50px; /* Space for the line */
+            max-width: 800px;
+        }
+
+        /* The Vertical Line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 15px; 
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: var(--border); /* Light Grey Line */
+            z-index: 0;
+        }
+
+        /* The Timeline Item */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        /* The Dot (Commit Node) */
+        .timeline-marker {
+            position: absolute;
+            left: -42px; /* Position on the line */
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--bg-body); /* Hollow effect center */
+            border: 4px solid var(--accent-blue); /* Ring color */
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 5px var(--bg-body); /* White spacing around dot */
+            transition: 0.3s;
+        }
+
+        /* Active/Present Job Marker Style */
+        .timeline-item.present .timeline-marker {
+            border-color: var(--accent-green); /* Green for current jobs */
+            background-color: var(--accent-green); /* Solid fill */
+        }
+
+        /* The Card Content */
+        .timeline-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 6px;
+            position: relative;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        /* Arrow pointing to line */
+        .timeline-card::after {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 24px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--bg-card);
+            border-left: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transform: rotate(45deg);
+        }
+
+        .timeline-card:hover {
+            transform: translateX(5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-purple);
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(166, 38, 164, 0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        /* Organization Name */
+        .timeline-org {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Job Title */
+        .timeline-role {
+            color: var(--text-comment);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+        
+        .timeline-desc i { color: var(--accent-blue); margin-right: 5px; }
+
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
-        <h1 class="page-title">Experience</h1>
+        <h1 class="page-title">Experience_Log</h1>
         
-        <div class="services-section" style="padding: 0; grid-template-columns: 1fr;">
+        <div class="timeline-container">
             
-            <div class="service-item" style="border-left: 5px solid var(--accent-yellow); background: #f9f9f9; padding: 30px; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 1.4rem;">DLSU Association of Computer Engineering Students</h3>
-                        <p style="color: #000; font-weight: 600; margin-top: 0;">President</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="background: var(--text-black); color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">SEP 2025 - PRESENT</span>
+            <div class="timeline-item present">
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
+                    <span class="timeline-date">Sep 2025 - Present</span>
+                    <h3 class="timeline-org">DLSU Association of Computer Engineering Students</h3>
+                    <div class="timeline-role">President</div>
+                    <div class="timeline-desc">
+                        <i class="fas fa-terminal"></i> Leading the student body organization for CpE.<br>
+                        <i class="fas fa-history" style="color:#ccc;"></i> Previously: Junior Officer for Academics.
                     </div>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.9rem;">
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: var(--accent-yellow);">arrow_right</span> 
-                    Leading the student body organization for Computer Engineering.<br>
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: #ccc;">history</span> 
-                    Previously: Junior Officer for Academics (Nov 2024 - Aug 2025).
-                </p>
             </div>
 
-            <div class="service-item" style="border-left: 5px solid var(--accent-yellow); background: #f9f9f9; padding: 30px; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 1.4rem;">Ang Pahayagang Plaridel</h3>
-                        <p style="color: #000; font-weight: 600; margin-top: 0;">IT Staffer & Writer</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="background: var(--text-black); color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">OCT 2023 - PRESENT</span>
+            <div class="timeline-item present">
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
+                    <span class="timeline-date">Oct 2023 - Present</span>
+                    <h3 class="timeline-org">Ang Pahayagang Plaridel</h3>
+                    <div class="timeline-role">IT Staffer & Writer</div>
+                    <div class="timeline-desc">
+                        <i class="fas fa-laptop-code"></i> Managing digital assets and IT infrastructure.<br>
+                        <i class="fas fa-pen-nib"></i> Former News Writer (2 Years).
                     </div>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.9rem;">
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: var(--accent-yellow);">arrow_right</span> 
-                    Current IT Staffer managing digital assets.<br>
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: #ccc;">history</span> 
-                    Former News Writer (2 Years). Skills: News Writing, Technical Support.
-                </p>
             </div>
 
-            <div class="service-item" style="border-left: 5px solid var(--accent-yellow); background: #f9f9f9; padding: 30px; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 1.4rem;">Lasallian Scholars Society</h3>
-                        <p style="color: #000; font-weight: 600; margin-top: 0;">Assistant VP for Academics</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="background: var(--text-black); color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">OCT 2024 - PRESENT</span>
+            <div class="timeline-item present">
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
+                    <span class="timeline-date">Oct 2024 - Present</span>
+                    <h3 class="timeline-org">Lasallian Scholars Society</h3>
+                    <div class="timeline-role">Assistant VP for Academics</div>
+                    <div class="timeline-desc">
+                        <i class="fas fa-chalkboard-teacher"></i> Spearheading academic development programs.<br>
+                        <i class="fas fa-tasks"></i> Lead Associate for Program Development (Summit 2025).
                     </div>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.9rem;">
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: var(--accent-yellow);">arrow_right</span> 
-                    Spearheading academic development programs.<br>
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: #ccc;">history</span> 
-                    Lead Associate for Program Development (Summit 2025).
-                </p>
             </div>
 
-            <div class="service-item" style="border-left: 5px solid var(--accent-yellow); background: #f9f9f9; padding: 30px; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 1.4rem;">ScienceKonek</h3>
-                        <p style="color: #000; font-weight: 600; margin-top: 0;">Technology Development Officer</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="background: var(--text-black); color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">DEC 2023 - PRESENT</span>
+            <div class="timeline-item present">
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
+                    <span class="timeline-date">Dec 2023 - Present</span>
+                    <h3 class="timeline-org">ScienceKonek</h3>
+                    <div class="timeline-role">Technology Development Officer</div>
+                    <div class="timeline-desc">
+                        <i class="fas fa-flask"></i> Tech integration for science communication.<br>
+                        <i class="fas fa-paint-brush"></i> Former Creatives Officer.
                     </div>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.9rem;">
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: var(--accent-yellow);">arrow_right</span> 
-                    Focusing on tech integration for science communication.<br>
-                    <span class="material-icons" style="font-size: 1rem; vertical-align: middle; color: #ccc;">history</span> 
-                    Former Creatives Officer skilled in Graphic Design & Project Management.
-                </p>
             </div>
 
-            <div class="service-item" style="border-left: 5px solid #ccc; background: #fff; border: 1px solid #eee; border-left: 5px solid #ccc; padding: 30px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="margin-bottom: 5px; font-size: 1.4rem;">University Student Government</h3>
-                        <p style="color: #666; font-weight: 600; margin-top: 0;">Various Executive Roles</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="background: #eee; color: #666; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px;">2024 - 2025</span>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div> <div class="timeline-card">
+                    <span class="timeline-date" style="color:var(--text-comment);">2024 - 2025</span>
+                    <h3 class="timeline-org">University Student Government</h3>
+                    <div class="timeline-role">Various Executive Roles</div>
+                    <div class="timeline-desc">
+                        <ul style="margin: 0; padding-left: 20px; color: #666;">
+                            <li>Executive for Activities and Advocacies (DLSU ECG)</li>
+                            <li>Executive for Logistics and Technology (78th ENG)</li>
+                            <li>Asst. Team Leader for Production (ENGWEEK 2024)</li>
+                        </ul>
                     </div>
                 </div>
-                <ul style="margin-top: 15px; font-size: 0.9rem; padding-left: 20px; color: #444;">
-                    <li>Executive for Activities and Advocacies (DLSU ECG)</li>
-                    <li>Executive for Logistics and Technology (78th ENG)</li>
-                    <li>Assistant Team Leader for Production (ENGWEEK 2024)</li>
-                </ul>
             </div>
 
         </div>

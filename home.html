@@ -2,71 +2,76 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     
     <div class="hero-container">
         
         <div class="hero-text">
-            <span class="hero-subtitle">Engineer / Developer</span>
-            <h1 class="hero-title">Angelica<br>Gregorio</h1>
+            <span class="hero-subtitle">// Engineer / Developer</span>
             
-            <a href="works.html" class="btn-black">VIEW ALL WORKS</a>
+            <h1 class="hero-title">
+                Hello, I'm <br>
+                <span>Angelica Gregorio</span>;
+            </h1>
+            
+            <p class="hero-desc">
+                <span style="color:var(--accent-blue);">import</span> Innovation;<br>
+                <span style="color:var(--accent-purple);">const</span> Skills = [<br>
+                &nbsp;&nbsp;<span style="color:var(--accent-green);">'Embedded Systems'</span>,<br>
+                &nbsp;&nbsp;<span style="color:var(--accent-green);">'AI & Data'</span>,<br>
+                &nbsp;&nbsp;<span style="color:var(--accent-green);">'Web Tech'</span><br>
+                ];
+            </p>
+            
+            <div style="display: flex; flex-wrap: wrap;">
+                <a href="works.html" class="btn-black">
+                    <i class="fas fa-play"></i> Run_Portfolio
+                </a>
+                <a href="https://www.linkedin.com/in/angelica-gregorio/" target="_blank" class="btn-outline">
+                    View_CV()
+                </a>
+            </div>
             
             <div class="social-links">
-                <span class="material-icons" title="Website">public</span>
-                <span class="material-icons" title="Email">email</span>
-                <span class="material-icons" title="Social">share</span>
+                <a href="https://www.linkedin.com/in/angelica-gregorio/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                <a href="mailto:angelica_g_gregorio@dlsu.edu.ph"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
 
         <div class="hero-image-wrapper">
-            <div class="yellow-blob"></div>
-            <img src="https://ui-avatars.com/api/?name=Alyssa+G&background=random&size=400" class="profile-img" alt="Angelica">
+            <div class="yellow-blob"></div> 
+            <img src="profile.png" class="profile-img" alt="Angelica Gregorio">
         </div>
     </div>
 
     <div class="services-section">
-        
         <div class="service-item">
-            <div class="icon-box">
-                <span class="material-icons">memory</span>
-            </div>
-            <h3>Embedded Systems</h3>
-            <p>Designing efficient firmware for Arduino, PIC microcontrollers, and IoT devices like ESP8266.</p>
+            <div class="icon-box"><i class="fas fa-microchip"></i></div>
+            <h3>Embedded_Systems</h3>
+            <p>Firmware for Arduino, PIC, ESP8266.</p>
         </div>
-
         <div class="service-item">
-            <div class="icon-box">
-                <span class="material-icons">insights</span>
-            </div>
-            <h3>AI & Data</h3>
-            <p>Developing machine learning models using Python and MATLAB for predictive analysis and computer vision.</p>
+            <div class="icon-box"><i class="fas fa-brain"></i></div>
+            <h3>AI_&_Data</h3>
+            <p>Python/MATLAB ML Models.</p>
         </div>
-
         <div class="service-item">
-            <div class="icon-box">
-                <span class="material-icons">code</span>
-            </div>
-            <h3>Web Development</h3>
-            <p>Building secure, functional web portals using PHP, MySQL, and modern HTML/CSS standards.</p>
+            <div class="icon-box"><i class="fas fa-globe"></i></div>
+            <h3>Web_Dev</h3>
+            <p>PHP, MySQL, Full Stack.</p>
         </div>
-
     </div>
 
-    <div style="background: #f9f9f9; padding: 80px 10%;">
-        <h3>Let's Work Together</h3>
-        <form action="#" style="max-width: 500px;">
-            <div style="margin-bottom: 15px;">
-                <input type="text" placeholder="Name">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <input type="email" placeholder="Email">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <textarea rows="4" placeholder="Message"></textarea>
-            </div>
-            <button class="btn-black" style="cursor:pointer;">SEND MESSAGE</button>
+    <div style="padding: 80px 10%; background: #ffffff; border-top: 1px solid #eee;">
+        <h3 style="color: var(--accent-purple); font-family: 'Fira Code';">> Input_Message:</h3>
+        <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain" style="max-width: 500px;">
+            <input type="text" name="Name" placeholder="String name = '...'" required>
+            <input type="email" name="Email" placeholder="String email = '...'" required>
+            <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
+            <button class="btn-black" style="cursor:pointer; width:100%;">SUBMIT();</button>
         </form>
     </div>
 
