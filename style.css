@@ -168,16 +168,17 @@ body.menu-body {
 }
 
 /* ===========================
-   HERO IMAGE
+   HERO IMAGE (Bigger Size)
    =========================== */
 .hero-image-wrapper {
     flex: 1; min-width: 300px; position: relative;
     display: flex; justify-content: center; align-items: center;
 }
 
+/* Increased blob size to 450px (was 320px) */
 .yellow-blob {
     position: absolute;
-    width: 320px; height: 320px;
+    width: 450px; height: 450px;
     border: 2px dashed var(--accent-purple); /* Purple dash */
     border-radius: 50%;
     animation: spin 20s linear infinite;
@@ -187,12 +188,13 @@ body.menu-body {
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
+/* Increased profile image size to 400x500px (was 280x350px) */
 .profile-img {
-    width: 280px; height: 350px;
+    width: 400px; height: 500px;
     object-fit: cover; z-index: 2;
     border-radius: 10px;
     border: 2px solid var(--accent-blue);
-    box-shadow: 15px 15px 0px rgba(0,0,0,0.1); /* Soft shadow */
+    box-shadow: 20px 20px 0px rgba(0,0,0,0.1); /* Larger shadow for larger image */
 }
 
 /* ===========================
@@ -260,4 +262,137 @@ input:focus, textarea:focus {
 @media (max-width: 768px) {
     .hero-title { font-size: 2.5rem; }
     .btn-outline { margin-left: 0; display: block; margin-top: 15px; }
+    
+    /* Adjust image size on mobile so it doesn't break the layout */
+    .profile-img { width: 300px; height: 375px; }
+    .yellow-blob { width: 340px; height: 340px; }
+}
+
+/* ===========================
+   WORKS SECTION STYLES
+============================ */
+
+.works-section {
+    padding: 100px 0;
+    /* Ensures enough space when scrolling to anchor */
+    min-height: 80vh; 
+}
+
+.section-heading {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Space between different projects */
+}
+
+/* Project Item Layout */
+.project-item {
+    display: grid;
+    /* Desktop layout: Image on left, text on right */
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 50px;
+    align-items: center;
+}
+
+/* Project Image Styling */
+.project-image-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Soft modern shadow */
+    background-color: #e0e0e0; /* Placeholder color while image loads */
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Subtle zoom effect on hover */
+.project-image-container:hover .project-img {
+    transform: scale(1.03);
+}
+
+/* Project Text Content */
+.project-content {
+    position: relative;
+}
+
+.project-number {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-orange); /* Changed to accent orange to match theme */
+    display: block;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+/* Project Metadata (Stack & Devs) */
+.meta-block {
+    margin-bottom: 25px;
+}
+
+.meta-block h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-comment);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Tech Stack Tags */
+.tech-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tags li {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.developer-list {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* ===========================
+   RESPONSIVE ADJUSTRMENTS
+============================ */
+@media (max-width: 992px) {
+    .section-heading {
+        font-size: 3rem;
+    }
+
+    .project-item {
+        /* Stack image on top of text for tablet/mobile */
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
 }
