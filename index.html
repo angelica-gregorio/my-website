@@ -41,7 +41,6 @@
             display: block;
         }
 
-        /* Padding for the first item so it doesn't hide behind menu */
         #home {
             padding-top: 60px;
         }
@@ -96,12 +95,12 @@
 
     <script>
         function resizeIframe(frame) {
-            // Only try to resize if the content is accessible (same domain)
+           
             try {
                 if (frame.contentWindow.document.body) {
-                    // 1. Reset height to 0 first (allows shrinking if content gets smaller)
+                 
                     frame.style.height = '0px';
-                    // 2. Set height to match the inner content's scrollHeight + a small buffer
+                    
                     frame.style.height = (frame.contentWindow.document.body.scrollHeight + 10) + 'px';
                 }
             } catch (e) {
@@ -113,19 +112,19 @@
             let frames = document.querySelectorAll('.content-frame');
 
             frames.forEach(frame => {
-                // Resize when the iframe finishes loading
+             
                 frame.onload = function () {
                     resizeIframe(this);
                 };
 
-                // Resize immediately if it's already cached/loaded
+               
                 if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
                     resizeIframe(frame);
                 }
             });
         };
 
-        // Re-calculate heights if the user resizes their browser window
+       
         window.onresize = function () {
             let frames = document.querySelectorAll('.content-frame');
             frames.forEach(frame => resizeIframe(frame));
