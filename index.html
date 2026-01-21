@@ -1,10 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Angelica | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angelica Gregorio | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Main page handles the scrolling */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto; }
+        
+        /* Iframe Stacking Styles */
+        iframe {
+            border: none; 
+            display: block; 
+            width: 100%; 
+            overflow: hidden; }
+        
+        /* Sticky Menu Frame */
+        iframe.sticky-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 9999;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Content Frames */
+        .content-frame {
+            width: 100%;
+            display: block; 
+        }
+        
+        /* Padding for the first item so it doesn't hide behind menu */
+        #home { padding-top: 60px; }
+    </style>
 </head>
-<frameset rows="90,*" frameborder="0" border="0" framespacing="0">
-    <frame src="menu.html" name="menuFrame" noresize scrolling="no">
-    <frame src="home.html" name="contentFrame">
-</frameset>
+<body>
+
+    <iframe src="menu.html" class="sticky-menu"></iframe>
+
+    <div id="home">
+        <iframe src="home.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <div id="about">
+        <iframe src="about.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <div id="works">
+        <iframe src="works.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <div id="experience">
+        <iframe src="experience.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <div id="education">
+        <iframe src="education.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <div id="references">
+        <iframe src="references.html" class="content-frame" scrolling="no"></iframe>
+    </div>
+
+    <script>
+        function resizeIframe(frame) {
+            // Only try to resize if the content is accessible (same domain)
+            try {
+                if (frame.contentWindow.document.body) {
+                    // 1. Reset height to 0 first (allows shrinking if content gets smaller)
+                    frame.style.height = '0px'; 
+                    // 2. Set height to match the inner content's scrollHeight + a small buffer
+                    frame.style.height = (frame.contentWindow.document.body.scrollHeight + 10) + 'px';
+                }
+            } catch (e) {
+                console.log("Cross-origin frame or not loaded yet.");
+            }
+        }
+
+        window.onload = function() {
+            let frames = document.querySelectorAll('.content-frame');
+            
+            frames.forEach(frame => {
+                // Resize when the iframe finishes loading
+                frame.onload = function() { 
+                    resizeIframe(this); 
+                };
+
+                // Resize immediately if it's already cached/loaded
+                if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
+                    resizeIframe(frame);
+                }
+            });
+        };
+
+        // Re-calculate heights if the user resizes their browser window
+        window.onresize = function() {
+            let frames = document.querySelectorAll('.content-frame');
+            frames.forEach(frame => resizeIframe(frame));
+        }
+    </script>
+</body>
 </html>

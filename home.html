@@ -1,31 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
+
 <body>
-    
     <div class="hero-container">
-        
         <div class="hero-text">
             <span class="hero-subtitle">// Engineer / Developer</span>
-            
+
             <h1 class="hero-title">
-                Hello, I'm <br>
+                Hello, I'm <br />
                 <span>Angelica Gregorio</span>;
             </h1>
-            
+
             <p class="hero-desc">
-                <span style="color:var(--accent-blue);">import</span> Innovation;<br>
-                <span style="color:var(--accent-purple);">const</span> Skills = [<br>
-                &nbsp;&nbsp;<span style="color:var(--accent-green);">'Embedded Systems'</span>,<br>
-                &nbsp;&nbsp;<span style="color:var(--accent-green);">'AI & Data'</span>,<br>
-                &nbsp;&nbsp;<span style="color:var(--accent-green);">'Web Tech'</span><br>
+                <span style="color: var(--accent-blue)">import</span>
+                Innovation;<br />
+                <br />
+                <span style="color: var(--accent-purple)">const</span> Year =
+                <span style="color: var(--accent-green)">'3rd Year'</span>;<br />
+                <span style="color: var(--accent-purple)">const</span> Major =
+                <span style="color: var(--accent-green)">'BS Computer Engineering'</span>;<br />
+                <span style="color: var(--accent-purple)">const</span> Minor =
+                <span style="color: var(--accent-green)">'Data Science'</span>;<br />
+                <br />
+                <span style="color: var(--accent-purple)">const</span> Skills = [<br />
+                &nbsp;&nbsp;<span style="color: var(--accent-green)">'Embedded Systems'</span>,<br />
+                &nbsp;&nbsp;<span style="color: var(--accent-green)">'AI & Data'</span>,<br />
+                &nbsp;&nbsp;<span style="color: var(--accent-green)">'Web Tech'</span><br />
                 ];
             </p>
-            
-            <div style="display: flex; flex-wrap: wrap;">
+            <div style="display: flex; flex-wrap: wrap">
                 <a href="works.html" class="btn-black">
                     <i class="fas fa-play"></i> Run_Portfolio
                 </a>
@@ -33,7 +41,7 @@
                     View_CV()
                 </a>
             </div>
-            
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/angelica-gregorio/"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/"><i class="fab fa-github"></i></a>
@@ -42,8 +50,8 @@
         </div>
 
         <div class="hero-image-wrapper">
-            <div class="yellow-blob"></div> 
-            <img src="profile.png" class="profile-img" alt="Angelica Gregorio">
+            <div class="violet-blob"></div>
+            <img src="images/profile.png" class="profile-img" alt="Angelica Gregorio" />
         </div>
     </div>
 
@@ -65,15 +73,20 @@
         </div>
     </div>
 
-    <div style="padding: 80px 10%; background: #ffffff; border-top: 1px solid #eee;">
-        <h3 style="color: var(--accent-purple); font-family: 'Fira Code';">> Input_Message:</h3>
-        <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain" style="max-width: 500px;">
-            <input type="text" name="Name" placeholder="String name = '...'" required>
-            <input type="email" name="Email" placeholder="String email = '...'" required>
+    <div style="padding: 80px 10%; background: #ffffff; border-top: 1px solid #eee">
+        <h3 style="color: var(--accent-purple); font-family: &quot;Fira Code&quot;">
+            > Input_Message:
+        </h3>
+        <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain"
+            style="max-width: 500px">
+            <input type="text" name="Name" placeholder="String name = '...'" required />
+            <input type="email" name="Email" placeholder="String email = '...'" required />
             <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
-            <button class="btn-black" style="cursor:pointer; width:100%;">SUBMIT();</button>
+            <button class="btn-black" style="cursor: pointer; width: 100%">
+                SUBMIT();
+            </button>
         </form>
     </div>
-
 </body>
+
 </html>
