@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
-        /* TIMELINE SPECIFIC CSS (IDE Theme) */
         .timeline-container {
             position: relative;
-            padding-left: 50px; /* Space for the line */
+            padding-left: 50px;
             max-width: 800px;
         }
 
-        /* The Vertical Line */
+
         .timeline-container::before {
             content: '';
             position: absolute;
-            left: 15px; 
+            left: 15px;
             top: 10px;
             bottom: 0;
             width: 2px;
-            background: var(--border); /* Light Grey Line */
+            background: var(--border);
             z-index: 0;
         }
 
-        /* The Timeline Item */
+
         .timeline-item {
             position: relative;
             margin-bottom: 45px;
         }
 
-        /* The Dot (Commit Node) */
+
         .timeline-marker {
             position: absolute;
-            left: -42px; /* Position on the line */
+            left: -42px;
             top: 20px;
             width: 16px;
             height: 16px;
-            background-color: var(--bg-body); /* Hollow effect center */
-            border: 4px solid var(--accent-blue); /* Ring color */
+            background-color: var(--bg-body);
+            border: 4px solid var(--accent-blue);
             border-radius: 50%;
             z-index: 1;
-            box-shadow: 0 0 0 5px var(--bg-body); /* White spacing around dot */
+            box-shadow: 0 0 0 5px var(--bg-body);
             transition: 0.3s;
         }
 
-        /* Active/Present Job Marker Style */
+
         .timeline-item.present .timeline-marker {
-            border-color: var(--accent-green); /* Green for current jobs */
-            background-color: var(--accent-green); /* Solid fill */
+            border-color: var(--accent-green);
+            background-color: var(--accent-green);
         }
 
-        /* The Card Content */
+
         .timeline-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
@@ -59,10 +59,10 @@
             border-radius: 6px;
             position: relative;
             transition: 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
         }
 
-        /* Arrow pointing to line */
+
         .timeline-card::after {
             content: '';
             position: absolute;
@@ -79,7 +79,7 @@
         .timeline-card:hover {
             transform: translateX(5px);
             border-color: var(--accent-blue);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .timeline-date {
@@ -92,8 +92,8 @@
             padding: 3px 8px;
             border-radius: 4px;
         }
-        
-        /* Organization Name */
+
+
         .timeline-org {
             font-size: 1.2rem;
             color: var(--text-main);
@@ -101,7 +101,7 @@
             font-weight: 600;
         }
 
-        /* Job Title */
+
         .timeline-role {
             color: var(--text-comment);
             font-size: 1rem;
@@ -114,17 +114,20 @@
             line-height: 1.6;
             color: var(--text-main);
         }
-        
-        .timeline-desc i { color: var(--accent-blue); margin-right: 5px; }
 
+        .timeline-desc i {
+            color: var(--accent-blue);
+            margin-right: 5px;
+        }
     </style>
 </head>
+
 <body>
     <div class="page-wrapper">
         <h1 class="page-title">Experience_Log</h1>
-        
+
         <div class="timeline-container">
-            
+
             <div class="timeline-item present">
                 <div class="timeline-marker"></div>
                 <div class="timeline-card">
@@ -178,7 +181,8 @@
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-marker"></div> <div class="timeline-card">
+                <div class="timeline-marker"></div>
+                <div class="timeline-card">
                     <span class="timeline-date" style="color:var(--text-comment);">2024 - 2025</span>
                     <h3 class="timeline-org">University Student Government</h3>
                     <div class="timeline-role">Various Executive Roles</div>
@@ -195,4 +199,5 @@
         </div>
     </div>
 </body>
+
 </html>

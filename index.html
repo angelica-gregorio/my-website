@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angelica Gregorio | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
         /* Main page handles the scrolling */
         body {
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            overflow-y: auto; }
-        
+            overflow-y: auto;
+        }
+
         /* Iframe Stacking Styles */
         iframe {
-            border: none; 
-            display: block; 
-            width: 100%; 
-            overflow: hidden; }
-        
+            border: none;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+
         /* Sticky Menu Frame */
         iframe.sticky-menu {
             position: fixed;
@@ -35,13 +38,16 @@
         /* Content Frames */
         .content-frame {
             width: 100%;
-            display: block; 
+            display: block;
         }
-        
+
         /* Padding for the first item so it doesn't hide behind menu */
-        #home { padding-top: 60px; }
+        #home {
+            padding-top: 60px;
+        }
     </style>
 </head>
+
 <body>
 
     <iframe src="menu.html" class="sticky-menu"></iframe>
@@ -70,13 +76,31 @@
         <iframe src="references.html" class="content-frame" scrolling="no"></iframe>
     </div>
 
+     <div style="padding: 80px 10%; background: #ffffff; border-top: 1px solid #eee">
+        <div class="page-wrapper"></div>
+         <h1 class="page-title" style="text-align:center;" >Let's Connect</h1>
+        <h3 style="color: var(--accent-purple); font-family: &quot;Fira Code&quot;; text-align: center;">
+            > Input_Message:
+        </h3>
+        <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain"
+            style="max-width: 500px; margin: 0 auto;">
+            <input type="text" name="Name" placeholder="String name = '...'" required />
+            <input type="email" name="Email" placeholder="String email = '...'" required />
+            <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
+            <button class="btn-black" style="cursor: pointer; width: 100%">
+                SUBMIT();
+            </button>
+        </form>
+    </div>
+    </div>
+
     <script>
         function resizeIframe(frame) {
             // Only try to resize if the content is accessible (same domain)
             try {
                 if (frame.contentWindow.document.body) {
                     // 1. Reset height to 0 first (allows shrinking if content gets smaller)
-                    frame.style.height = '0px'; 
+                    frame.style.height = '0px';
                     // 2. Set height to match the inner content's scrollHeight + a small buffer
                     frame.style.height = (frame.contentWindow.document.body.scrollHeight + 10) + 'px';
                 }
@@ -85,13 +109,13 @@
             }
         }
 
-        window.onload = function() {
+        window.onload = function () {
             let frames = document.querySelectorAll('.content-frame');
-            
+
             frames.forEach(frame => {
                 // Resize when the iframe finishes loading
-                frame.onload = function() { 
-                    resizeIframe(this); 
+                frame.onload = function () {
+                    resizeIframe(this);
                 };
 
                 // Resize immediately if it's already cached/loaded
@@ -102,10 +126,11 @@
         };
 
         // Re-calculate heights if the user resizes their browser window
-        window.onresize = function() {
+        window.onresize = function () {
             let frames = document.querySelectorAll('.content-frame');
             frames.forEach(frame => resizeIframe(frame));
         }
     </script>
 </body>
+
 </html>
