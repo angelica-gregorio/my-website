@@ -526,3 +526,254 @@ iframe.content-frame {
 #home-frame {
     margin-top: 60px;
 }
+
+/* ===========================
+   4. ABOUT SECTION 
+   (Merged specific layout with new Theme)
+   =========================== */
+.about-section {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    background-color: var(--bg-card); /* Added card background */
+    padding: 40px;                    /* Added padding for the card look */
+    border: 1px solid var(--border);  /* Added border to match theme */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.about-image {
+    flex-shrink: 0;
+}
+
+.about-image img {
+    width: 300px; /* Adjusted size to fit card better */
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--accent-blue); /* Changed from shadow to border */
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05); /* Flat shadow style */
+}
+
+/* Specific fix for the About Text Title inside the flex container */
+.about-text h1.page-title {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.about-text strong {
+    color: var(--accent-purple); /* Highlight bold text in purple */
+}
+
+/* ===========================
+   7. EDUCATION & AWARDS SPECIFICS
+   =========================== */
+
+/* Utility for items needing relative positioning */
+.relative-item {
+    position: relative;
+}
+
+/* The Year/Date Badge */
+.date-badge {
+    background-color: rgba(229, 192, 123, 0.15); /* Low opacity yellow background */
+    color: var(--accent-orange); /* Using orange for high contrast */
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid var(--accent-yellow);
+    font-family: 'Fira Code', monospace;
+}
+
+/* University Name Highlight */
+.highlight-text {
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Coursework List */
+.course-list {
+    padding-left: 20px;
+    color: var(--text-comment); /* Makes list look like code comments */
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.course-list li {
+    margin-bottom: 5px;
+}
+
+/* Awards Section Styling */
+.award-item {
+    margin-bottom: 20px; /* Replaces the margin-top: 15px */
+    border-left: 2px solid var(--border); /* Optional: adds a visual guide line */
+    padding-left: 10px;
+}
+
+.award-item p {
+    margin: 0 0 5px 0;
+    color: var(--text-main);
+}
+
+.award-meta {
+    font-size: 0.85rem;
+    color: var(--text-comment);
+    font-style: italic;
+    display: block;
+}
+
+/* ===========================
+   8. EXPERIENCE TIMELINE
+   =========================== */
+
+.timeline-container {
+    position: relative;
+    padding-left: 50px;
+    max-width: 800px;
+}
+
+/* The Vertical Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+/* The Dot/Marker */
+.timeline-marker {
+    position: absolute;
+    left: -42px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-body);
+    border: 4px solid var(--accent-blue);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 5px var(--bg-body); /* Creates a gap between line and dot */
+    transition: 0.3s;
+}
+
+/* Active/Present State (Green) */
+.timeline-item.present .timeline-marker {
+    border-color: var(--accent-green);
+    background-color: var(--accent-green);
+}
+
+/* The Card Box */
+.timeline-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 6px;
+    position: relative;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.timeline-card:hover {
+    transform: translateX(5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* The Speech Bubble Arrow */
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 24px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bg-card);
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transform: rotate(45deg);
+    transition: border-color 0.3s;
+}
+
+.timeline-card:hover::after {
+    border-left-color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+/* Text Styling */
+.timeline-date {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    margin-bottom: 8px;
+    display: inline-block;
+    background: rgba(166, 38, 164, 0.05);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.timeline-date.past-date {
+    color: var(--text-comment);
+    background: #f0f0f0;
+}
+
+.timeline-org {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin: 0;
+    font-weight: 600;
+}
+
+.timeline-role {
+    color: var(--text-comment);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.timeline-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* Icons inside the description */
+.timeline-desc i {
+    color: var(--accent-blue);
+    margin-right: 5px;
+    width: 20px; /* Aligns text neatly */
+    text-align: center;
+}
+
+.timeline-desc i.muted-icon {
+    color: var(--text-comment); /* Replaces the inline #ccc */
+}
+
+/* List Styling (replaced inline styles) */
+.timeline-list {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-main);
+}
+
+.timeline-list li {
+    margin-bottom: 5px;
+}
