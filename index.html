@@ -6,48 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angelica Gregorio | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* Main page handles the scrolling */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        /* Iframe Stacking Styles */
-        iframe {
-            border: none;
-            display: block;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        /* Sticky Menu Frame */
-        iframe.sticky-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            z-index: 9999;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        /* Content Frames */
-        .content-frame {
-            width: 100%;
-            display: block;
-        }
-
-        #home {
-            padding-top: 60px;
-        }
-    </style>
 </head>
 
-<body>
+<body class="main-scroller">
 
     <iframe src="menu.html" class="sticky-menu"></iframe>
 
@@ -75,32 +36,30 @@
         <iframe src="references.html" class="content-frame" scrolling="no"></iframe>
     </div>
 
-     <div style="padding: 80px 10%; background: #ffffff; border-top: 1px solid #eee">
-        <div class="page-wrapper"></div>
-         <h1 class="page-title" style="text-align:center;" >Let's Connect</h1>
-        <h3 style="color: var(--accent-purple); font-family: &quot;Fira Code&quot;; text-align: center;">
-            > Input_Message:
-        </h3>
-        <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain"
-            style="max-width: 500px; margin: 0 auto;">
-            <input type="text" name="Name" placeholder="String name = '...'" required />
-            <input type="email" name="Email" placeholder="String email = '...'" required />
-            <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
-            <button class="btn-black" style="cursor: pointer; width: 100%">
-                SUBMIT();
-            </button>
-        </form>
-    </div>
+    <div class="contact-section">
+        <div class="page-wrapper">
+            <h1 class="page-title text-center">Let's Connect</h1>
+            <h3 class="contact-subtitle">
+                > Input_Message:
+            </h3>
+            
+            <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain" class="contact-form">
+                <input type="text" name="Name" placeholder="String name = '...'" required />
+                <input type="email" name="Email" placeholder="String email = '...'" required />
+                <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
+                
+                <button class="btn-black btn-block">
+                    SUBMIT();
+                </button>
+            </form>
+        </div>
     </div>
 
     <script>
         function resizeIframe(frame) {
-           
             try {
                 if (frame.contentWindow.document.body) {
-                 
-                    frame.style.height = '0px';
-                    
+                    frame.style.height = '0px'; // Reset to calculate correctly
                     frame.style.height = (frame.contentWindow.document.body.scrollHeight + 10) + 'px';
                 }
             } catch (e) {
@@ -110,26 +69,19 @@
 
         window.onload = function () {
             let frames = document.querySelectorAll('.content-frame');
-
             frames.forEach(frame => {
-             
-                frame.onload = function () {
-                    resizeIframe(this);
-                };
-
-               
+                frame.onload = function () { resizeIframe(this); };
+                // If cached/already loaded
                 if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
                     resizeIframe(frame);
                 }
             });
         };
 
-       
         window.onresize = function () {
             let frames = document.querySelectorAll('.content-frame');
             frames.forEach(frame => resizeIframe(frame));
         }
     </script>
 </body>
-
 </html>
