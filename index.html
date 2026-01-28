@@ -10,33 +10,34 @@
 
 <body class="main-scroller">
 
-    <iframe src="menu.html" class="sticky-menu"></iframe>
+<body class="main-scroller">
 
-    <div id="home">
-        <iframe src="home.html" class="content-frame" scrolling="no"></iframe>
+    <div class="menu-body">
+        <a href="#" class="logo">&lt;Angelica <span>Gregorio</span> /&gt;</a>
+        
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
     </div>
 
-    <div id="about">
-        <iframe src="about.html" class="content-frame" scrolling="no"></iframe>
-    </div>
+    <div id="home-content"></div>
 
-    <div id="works">
-        <iframe src="works.html" class="content-frame" scrolling="no"></iframe>
-    </div>
+    <div id="about-content"></div>
 
-    <div id="experience">
-        <iframe src="experience.html" class="content-frame" scrolling="no"></iframe>
-    </div>
+    <div id="works-content"></div>
 
-    <div id="education">
-        <iframe src="education.html" class="content-frame" scrolling="no"></iframe>
-    </div>
+    <div id="experience-content"></div>
 
-    <div id="references">
-        <iframe src="references.html" class="content-frame" scrolling="no"></iframe>
-    </div>
+    <div id="education-content"></div>
 
-    <div class="contact-section">
+    <div id="references-content"></div>
+
+    <div id="contact-section" class="contact-section">
         <div class="page-wrapper">
             <h1 class="page-title text-center">Let's Connect</h1>
             <h3 class="contact-subtitle">
@@ -55,33 +56,6 @@
         </div>
     </div>
 
-    <script>
-        function resizeIframe(frame) {
-            try {
-                if (frame.contentWindow.document.body) {
-                    frame.style.height = '0px'; // Reset to calculate correctly
-                    frame.style.height = (frame.contentWindow.document.body.scrollHeight + 10) + 'px';
-                }
-            } catch (e) {
-                console.log("Cross-origin frame or not loaded yet.");
-            }
-        }
-
-        window.onload = function () {
-            let frames = document.querySelectorAll('.content-frame');
-            frames.forEach(frame => {
-                frame.onload = function () { resizeIframe(this); };
-                // If cached/already loaded
-                if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
-                    resizeIframe(frame);
-                }
-            });
-        };
-
-        window.onresize = function () {
-            let frames = document.querySelectorAll('.content-frame');
-            frames.forEach(frame => resizeIframe(frame));
-        }
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>

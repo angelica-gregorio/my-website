@@ -1,33 +1,24 @@
-/* IMPORT FONTS */
+/* ===========================
+   FONTS & COLOR PALETTE
+   =========================== */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* LIGHT IDE PALETTE (Atom/VS Code Light) */
 :root {
     --bg-body: #fafafa;
-    /* Off-white background */
     --bg-card: #ffffff;
-    /* Pure white panels */
     --text-main: #383a42;
-    /* Dark Grey (Main Text) */
     --text-comment: #a0a1a7;
-    /* Light Grey (Comments) */
-
-    /* Syntax Highlighting Colors */
     --accent-blue: #4078f2;
-    /* Keywords (Blue) */
     --accent-purple: #a626a4;
-    /* Variables (Purple) */
     --accent-green: #50a14f;
-    /* Strings (Green) */
     --accent-orange: #c18401;
-    /* Classes (Orange) */
-
     --border: #e0e0e0;
-    /* Light Grey Border */
 }
 
-/* GLOBAL RESET */
+/* ===========================
+   GLOBAL RESET & BASE STYLES
+   =========================== */
 * {
     box-sizing: border-box;
 }
@@ -36,21 +27,37 @@ body {
     font-family: 'Fira Code', 'Courier New', monospace;
     margin: 0;
     padding: 0;
+    padding-top: 60px;
     background-color: var(--bg-body);
     color: var(--text-main);
     overflow-x: hidden;
 }
 
+body.main-scroller {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* ===========================
-   NAVBAR (Light Tab Bar)
+   NAVBAR (FIXED & ALIGNED)
    =========================== */
-body.menu-body {
-    background-color: var(--bg-card);
+.menu-body {
+    background-color: var(--bg-card); /* White background */
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
+    
+    /* CRITICAL: Height must be small, not 100vh */
+    height: 60px; 
+    
+    /* CRITICAL: Fixes it to the top of the screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it sits ON TOP of your profile image */
+    
     border-bottom: 1px solid var(--border);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
@@ -86,13 +93,12 @@ body.menu-body {
 .nav-links a:hover {
     color: var(--accent-blue);
     background-color: #f0f0f0;
-    /* Subtle hover bg */
     border-radius: 4px;
     padding: 2px 5px;
 }
 
 /* ===========================
-   HERO SECTION (Graph Paper Effect)
+   HERO SECTION
    =========================== */
 .hero-container {
     display: flex;
@@ -159,6 +165,17 @@ body.menu-body {
     border: 2px solid var(--accent-blue);
     transition: 0.2s;
     border-radius: 4px;
+    background-color: var(--bg-card);
+    color: var(--accent-blue);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 30px;
+    border: 2px solid var(--accent-blue);
+    transition: 0.2s;
+    border-radius: 4px;
 }
 
 .btn-black:hover {
@@ -192,8 +209,6 @@ body.menu-body {
 /* ===========================
    HERO IMAGE & BLOB
    =========================== */
-
-/* Wrapper handles positioning */
 .hero-image-wrapper {
     position: relative;
     display: flex;
@@ -202,7 +217,6 @@ body.menu-body {
     padding: 40px;
 }
 
-/* The Blob (Supports both names) */
 .violet-blob,
 .yellow-blob {
     position: absolute;
@@ -221,7 +235,6 @@ body.menu-body {
     }
 }
 
-/* The Profile Image */
 .profile-img {
     width: 400px;
     height: 500px;
@@ -359,11 +372,20 @@ textarea:focus {
         width: 340px;
         height: 340px;
     }
-}
 
-/* ===========================
-   WORKS SECTION STYLES
-============================ */
+    .section-heading {
+        font-size: 3rem;
+    }
+
+    .project-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+}
 
 .works-section {
     padding: 100px 0;
@@ -473,72 +495,57 @@ textarea:focus {
 }
 
 /* ===========================
-   RESPONSIVE ADJUSTRMENTS
-============================ */
-@media (max-width: 992px) {
-    .section-heading {
-        font-size: 3rem;
-    }
-
-    .project-item {
-        /* Stack image on top of text for tablet/mobile */
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .project-title {
-        font-size: 1.5rem;
-    }
-}
-
-/* ===========================
-   IFRAME STACKING STYLES
+   FORMS & PAGE WRAPPER
    =========================== */
-
-iframe {
-    border: none;
-    display: block;
-    width: 100%;
-    overflow: hidden;
+.page-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* The Fixed Menu Iframe */
-iframe.sticky-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 9999;
-    background: #f3f3f3;
-    border-bottom: 1px solid var(--border);
+h1.page-title {
+    font-size: 2.5rem;
+    border-left: 0;
+    color: var(--accent-purple);
 }
 
-/* The Content Iframes */
-iframe.content-frame {
-    min-height: auto;
-    height: auto;
-    display: block;
-    width: 100%;
+h1.page-title::before {
+    content: 'class ';
+    color: var(--accent-blue);
+    font-size: 0.6em;
+    vertical-align: middle;
 }
 
+input,
+textarea {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    color: var(--text-main);
+    font-family: 'Fira Code', monospace;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: 0.3s;
+}
 
-#home-frame {
-    margin-top: 60px;
+input:focus,
+textarea:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(64, 120, 242, 0.1);
 }
 
 /* ===========================
-   4. ABOUT SECTION 
-   (Merged specific layout with new Theme)
+   ABOUT SECTION
    =========================== */
 .about-section {
     display: flex;
     gap: 40px;
     align-items: flex-start;
     margin-bottom: 60px;
-    background-color: var(--bg-card); /* Added card background */
-    padding: 40px;                    /* Added padding for the card look */
-    border: 1px solid var(--border);  /* Added border to match theme */
+    background-color: var(--bg-card);
+    padding: 40px;
+    border: 1px solid var(--border);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
@@ -548,14 +555,13 @@ iframe.content-frame {
 }
 
 .about-image img {
-    width: 300px; /* Adjusted size to fit card better */
+    width: 300px;
     height: auto;
     border-radius: 10px;
-    border: 2px solid var(--accent-blue); /* Changed from shadow to border */
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05); /* Flat shadow style */
+    border: 2px solid var(--accent-blue);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* Specific fix for the About Text Title inside the flex container */
 .about-text h1.page-title {
     margin-top: 0;
     font-size: 2rem;
@@ -568,43 +574,38 @@ iframe.content-frame {
 }
 
 .about-text strong {
-    color: var(--accent-purple); /* Highlight bold text in purple */
+    color: var(--accent-purple);
 }
 
 /* ===========================
-   7. EDUCATION & AWARDS SPECIFICS
+   EDUCATION & AWARDS
    =========================== */
-
-/* Utility for items needing relative positioning */
 .relative-item {
     position: relative;
 }
 
-/* The Year/Date Badge */
 .date-badge {
-    background-color: rgba(229, 192, 123, 0.15); /* Low opacity yellow background */
-    color: var(--accent-orange); /* Using orange for high contrast */
+    background-color: rgba(229, 192, 123, 0.15);
+    color: var(--accent-orange);
     font-size: 0.75rem;
     padding: 4px 10px;
     font-weight: 700;
     margin-bottom: 15px;
     display: inline-block;
     border-radius: 4px;
-    border: 1px solid var(--accent-yellow);
+    border: 1px solid var(--accent-orange);
     font-family: 'Fira Code', monospace;
 }
 
-/* University Name Highlight */
 .highlight-text {
     color: var(--text-main);
     font-weight: 700;
     margin-bottom: 5px;
 }
 
-/* Coursework List */
 .course-list {
     padding-left: 20px;
-    color: var(--text-comment); /* Makes list look like code comments */
+    color: var(--text-comment);
     font-size: 0.9rem;
     line-height: 1.8;
 }
@@ -613,10 +614,9 @@ iframe.content-frame {
     margin-bottom: 5px;
 }
 
-/* Awards Section Styling */
 .award-item {
-    margin-bottom: 20px; /* Replaces the margin-top: 15px */
-    border-left: 2px solid var(--border); /* Optional: adds a visual guide line */
+    margin-bottom: 20px;
+    border-left: 2px solid var(--border);
     padding-left: 10px;
 }
 
@@ -633,16 +633,14 @@ iframe.content-frame {
 }
 
 /* ===========================
-   8. EXPERIENCE TIMELINE
+   EXPERIENCE TIMELINE
    =========================== */
-
 .timeline-container {
     position: relative;
     padding-left: 50px;
     max-width: 800px;
 }
 
-/* The Vertical Line */
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -659,7 +657,6 @@ iframe.content-frame {
     margin-bottom: 45px;
 }
 
-/* The Dot/Marker */
 .timeline-marker {
     position: absolute;
     left: -42px;
@@ -670,17 +667,15 @@ iframe.content-frame {
     border: 4px solid var(--accent-blue);
     border-radius: 50%;
     z-index: 1;
-    box-shadow: 0 0 0 5px var(--bg-body); /* Creates a gap between line and dot */
+    box-shadow: 0 0 0 5px var(--bg-body);
     transition: 0.3s;
 }
 
-/* Active/Present State (Green) */
 .timeline-item.present .timeline-marker {
     border-color: var(--accent-green);
     background-color: var(--accent-green);
 }
 
-/* The Card Box */
 .timeline-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
@@ -697,7 +692,6 @@ iframe.content-frame {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* The Speech Bubble Arrow */
 .timeline-card::after {
     content: '';
     position: absolute;
@@ -717,7 +711,6 @@ iframe.content-frame {
     border-bottom-color: var(--accent-blue);
 }
 
-/* Text Styling */
 .timeline-date {
     font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
@@ -755,19 +748,17 @@ iframe.content-frame {
     color: var(--text-main);
 }
 
-/* Icons inside the description */
 .timeline-desc i {
     color: var(--accent-blue);
     margin-right: 5px;
-    width: 20px; /* Aligns text neatly */
+    width: 20px;
     text-align: center;
 }
 
 .timeline-desc i.muted-icon {
-    color: var(--text-comment); /* Replaces the inline #ccc */
+    color: var(--text-comment);
 }
 
-/* List Styling (replaced inline styles) */
 .timeline-list {
     margin: 0;
     padding-left: 20px;
@@ -779,18 +770,8 @@ iframe.content-frame {
 }
 
 /* ===========================
-   11. MAIN LAYOUT & IFRAMES
+   IFRAME & MAIN LAYOUT
    =========================== */
-
-/* Main Body Scroll Settings */
-body.main-scroller {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/* Base Iframe Styling */
 iframe {
     border: none;
     display: block;
@@ -798,7 +779,6 @@ iframe {
     overflow: hidden;
 }
 
-/* Sticky Navigation Menu */
 iframe.sticky-menu {
     position: fixed;
     top: 0;
@@ -806,25 +786,26 @@ iframe.sticky-menu {
     width: 100%;
     height: 60px;
     z-index: 9999;
-    background-color: var(--bg-card); /* Ensures content doesn't show behind menu */
+    background-color: var(--bg-card);
     border-bottom: 1px solid var(--border);
 }
 
-/* Content Frames */
 .content-frame {
     width: 100%;
     display: block;
 }
 
-/* Spacing for the first section (Home) */
-#home {
-    padding-top: 60px;
+/* ===========================
+   CONTENT SECTIONS
+   =========================== */
+.content-box {
+    width: 100%;
+    display: block;
 }
 
 /* ===========================
-   12. CONTACT SECTION
+   CONTACT SECTION
    =========================== */
-
 .contact-section {
     padding: 80px 10%;
     background: var(--bg-card);
@@ -849,7 +830,6 @@ iframe.sticky-menu {
     margin: 0 auto;
 }
 
-/* Button Modifier for Full Width */
 .btn-block {
     width: 100%;
     cursor: pointer;
