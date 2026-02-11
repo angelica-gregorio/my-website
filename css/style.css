@@ -835,3 +835,26 @@ iframe.sticky-menu {
     cursor: pointer;
     text-align: center;
 }
+
+.clock-style {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 4px 4px 0px #333;
+    
+    display: block;           /* Allows margin auto to work */
+    width: fit-content;       /* Ensures the box shrinks to fit the text */
+    margin-left: auto;        /* Pushes from the left */
+    margin-right: auto;       /* Pushes from the right */
+    margin-bottom: 20px;      /* Keeps your bottom spacing */
+}
+
+#connect-header{
+   font-size: 2.5rem;
+    border-left: 0;
+    color: var(--accent-purple);
+}
