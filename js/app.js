@@ -44,28 +44,25 @@ window.addEventListener('load', function () {
 });
 
 // Function to handle the Live Clock and Greeting
+// Update this part in your app.js
 function initializeExperience() {
-    // --- 1. Calculate the Greeting ---
     let now = new Date();
     let hour = now.getHours();
-    let greeting = "";
+    let greeting = "// HELLO";
 
-    if (hour >= 5 && hour < 12) greeting = "GOOD MORNING";
-    else if (hour >= 12 && hour < 17) greeting = "GOOD AFTERNOON";
-    else if (hour >= 17 && hour < 21) greeting = "GOOD EVENING";
-    else greeting = "GOOD NIGHT";
+    if (hour >= 5 && hour < 12) greeting = "// GOOD MORNING";
+    else if (hour >= 12 && hour < 17) greeting = "// GOOD AFTERNOON";
+    else if (hour >= 17 && hour < 21) greeting = "// GOOD EVENING";
+    else greeting = "// GOOD NIGHT";
 
-    // --- 2. Update the HTML Header (No Alert) ---
-    const headerElement = document.getElementById('connect-header');
-    
-    // We use innerHTML so we can keep the colored "class" span if you want, 
-    // or you can just use plain text. Here is the format you asked for:
-    if (headerElement) {
-        headerElement.innerHTML = `<span class="keyword">class</span> HI! ${greeting}! LETS CONNECT`;
+    // Update Sidebar Greeting
+    const greetingElement = document.getElementById('greeting-display');
+    if (greetingElement) {
+        greetingElement.innerText = greeting;
     }
 
-    // --- 3. Live Digital Clock ---
-    const clockElement = document.getElementById('clock-display'); // Make sure this ID matches your HTML
+    // Update Sidebar Clock
+    const clockElement = document.getElementById('clock-display');
     if (clockElement) {
         setInterval(() => {
             const currentTime = new Date();
